@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>再次翻阅 · 华体会随笔</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', 'PingFang SC', 'Noto Sans CJK SC', sans-serif;
+            background-color: #f7f5f2;
+            color: #2b2b2b;
+            line-height: 1.7;
+        }
+
+        /* 深色头图 */
+        .hero {
+            background: #1e1e2a;
+            padding: 5rem 1.5rem 4rem;
+            text-align: center;
+            color: #e3e0da;
+            border-bottom: 4px solid #b28a5c;
+        }
+
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 300;
+            letter-spacing: 3px;
+            word-break: keep-all;
+        }
+
+        .hero .sub {
+            margin-top: 1rem;
+            font-size: 1.1rem;
+            color: #bfb7aa;
+            max-width: 640px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* 正文容器 */
+        .container {
+            max-width: 780px;
+            margin: 0 auto;
+            padding: 2.5rem 1.5rem 4rem;
+        }
+
+        .article-title {
+            font-size: 1.8rem;
+            font-weight: 500;
+            border-left: 5px solid #b28a5c;
+            padding-left: 1rem;
+            margin-bottom: 0.5rem;
+            color: #1e1e2a;
+        }
+
+        .meta-note {
+            font-size: 0.9rem;
+            color: #7b756b;
+            margin-bottom: 2rem;
+            letter-spacing: 0.5px;
+        }
+
+        .lead {
+            font-size: 1.1rem;
+            background: #f1ede6;
+            padding: 1.2rem 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            color: #3d3a33;
+            border-left: 3px solid #b28a5c;
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+            text-align: justify;
+        }
+
+        .highlight-quote {
+            background: #fff;
+            border: 1px solid #dfd9ce;
+            border-radius: 6px;
+            padding: 1.2rem 1.8rem;
+            margin: 2rem 0;
+            font-style: normal;
+            position: relative;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+        }
+
+        .highlight-quote::before {
+            content: "📌";
+            position: absolute;
+            left: -0.8rem;
+            top: -0.5rem;
+            font-size: 1.5rem;
+        }
+
+        .highlight-quote p {
+            margin-bottom: 0.2rem;
+        }
+
+        .highlight-quote cite {
+            display: block;
+            margin-top: 0.6rem;
+            color: #7b756b;
+            font-size: 0.9rem;
+        }
+
+        a {
+            color: #8b6e47;
+            text-decoration: none;
+            border-bottom: 1px dotted #cbb99a;
+            transition: border-bottom 0.2s, color 0.2s;
+        }
+
+        a:hover {
+            color: #4f3c26;
+            border-bottom: 1px solid #4f3c26;
+        }
+
+        .visit-line {
+            background: #e9e4db;
+            padding: 1.2rem 1.8rem;
+            border-radius: 12px;
+            margin: 2rem 0 1.5rem;
+            font-size: 1.05rem;
+            text-align: center;
+            border: 1px solid #d6cfc0;
+        }
+
+        .faq-mini {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.2rem;
+            margin: 2.5rem 0;
+        }
+
+        .faq-item {
+            background: #ffffffdb;
+            border: 1px solid #e2dbd0;
+            border-radius: 8px;
+            padding: 1rem 1.2rem;
+        }
+
+        .faq-item strong {
+            display: block;
+            margin-bottom: 0.3rem;
+            color: #2b2b2b;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .faq-item span {
+            font-size: 0.9rem;
+            color: #5a554b;
+        }
+
+        .footer-note {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #ddd6cb;
+            text-align: center;
+            color: #7b756b;
+            font-size: 0.9rem;
+        }
+
+        /* 响应 */
+        @media (max-width: 640px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .article-title {
+                font-size: 1.5rem;
+            }
+            .container {
+                padding: 1.8rem 1rem 3rem;
+            }
+            .faq-mini {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="hero">
+    <h1>华体会</h1>
+    <div class="sub">一处安静记下的笔记 · 适合再次打开</div>
+</div>
+
+<div class="container">
+
+    <div class="article-title">访问、收藏与持续翻阅的习惯</div>
+    <div class="meta-note">整理于一次重读 &nbsp;·&nbsp; 只是记录</div>
+
+    <div class="lead">
+        有些页面，我们隔一段时间就会重新打开。不是因为它不断变化，而是因为它提供了一种稳定的、可以反复参照的脉络。<a href="https://web-portal-hth.com.cn">华体会</a> 就属于这类——每次访问，都像翻开一本折了角的书。
+    </div>
+
+    <p>
+        第一次打开时，可能只是随手浏览。第二次再访，开始留意到之前忽略的细节。第三次，你已经熟悉了它的结构，知道在哪里找到自己需要的部分。这种逐渐熟悉的过程，让一个页面从「信息」变成了「可停留的地方」。
+    </p>
+
+    <p>
+        收藏一个链接，很多时候不是因为它有多新奇，而是因为它「值得回来」。我们把链接放进书签栏，本质上是在说：这个地址里装着对我有用的内容，而且它的风格不扰人。简洁、稳定、没有意外，反而成了最珍贵的品质。
+    </p>
+
+    <!-- 引用提示 -->
+    <div class="highlight-quote">
+        <p>「持续关注，不一定是因为更新频率高，而是因为每一次打开，你都能从容地顺着之前的思路继续往下看。」</p>
+        <cite>—— 关于『华体会』的日常阅读笔记</cite>
+    </div>
+
+    <p>
+        这让我想到，真正有生命力的页面往往不是最喧哗的。它们通常有一个清晰的主题，文字和排版都留有余地，不急着说服你，也不试图塞给你太多东西。你可以在任何时刻点进去，不会觉得过时，也不会觉得陌生。
+    </p>
+
+    <p>
+        再次访问的意义，往往不在于获取全新的信息，而在于验证、对照、或者单纯地重新感受一遍当初觉得好的那几句话。收藏夹里总有几个地址不会被清理，因为它们已经不只是链接，更像是私人笔记的一部分。
+    </p>
+
+    <!-- 自然嵌入了“华体会”链接的句子 -->
+    <div class="visit-line">
+        ✦ 如果你也习惯保存一些值得反复看的地方，不妨把 <a href="https://web-portal-hth.com.cn">华体会</a> 放进书签。它不会吵闹，但总在。
+    </div>
+
+    <p>
+        当然，持续关注也意味着偶尔主动回去。我们往往高估自己的记忆力，却低估了一个简洁页面带来的持续回响。笔记也好，站点也罢，能被反复打开就是最好的状态。
+    </p>
+
+    <!-- FAQ 摘要 — 简化为两个小卡片，克制且平实 -->
+    <div class="faq-mini">
+        <div class="faq-item">
+            <strong>为什么适合再次访问？</strong>
+            <span>结构清晰，内容稳定，没有频繁的变动，像一本翻不旧的手册。</span>
+        </div>
+        <div class="faq-item">
+            <strong>如何保持关注？</strong>
+            <span>不需要订阅，也不需要提醒。收藏夹里留着，想起来就点开看看。</span>
+        </div>
+    </div>
+
+    <p>
+        最后，我想说：记录和整理本身，就是一种持续的对话。页面不会主动找你，但只要你回头，它就在那里。像一本认真写过的笔记本，每一次翻阅都带着上次的温度。
+    </p>
+
+    <div class="footer-note">
+        —— 关于访问 · 收藏 · 持续 ——
+    </div>
+
+</div>
+
+</body>
+</html>

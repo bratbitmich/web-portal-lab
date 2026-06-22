@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>信息索引：雷火电竞 · 知识卡片</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f2f4f6;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            color: #1e2a3a;
+            line-height: 1.6;
+            padding: 2rem 1.2rem;
+        }
+
+        .page-wrap {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        /* 主视觉 —— 资料台 */
+        .hero-card {
+            background: #ffffff;
+            border-radius: 28px;
+            box-shadow: 0 6px 18px rgba(0, 20, 30, 0.04);
+            border: 1px solid #e6ebf0;
+            padding: 2.8rem 2.5rem;
+            margin-bottom: 2.2rem;
+            transition: box-shadow 0.2s;
+        }
+
+        .hero-card:hover {
+            box-shadow: 0 10px 26px rgba(0, 20, 30, 0.06);
+        }
+
+        .hero-label {
+            display: inline-block;
+            font-size: 0.8rem;
+            letter-spacing: 0.4px;
+            text-transform: uppercase;
+            color: #5b6f82;
+            background: #ecf0f4;
+            padding: 0.2rem 1rem;
+            border-radius: 40px;
+            margin-bottom: 1rem;
+        }
+
+        .hero-title {
+            font-size: 2.4rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: #0b1a2a;
+            margin-bottom: 0.75rem;
+            line-height: 1.3;
+        }
+
+        .hero-sub {
+            font-size: 1.15rem;
+            color: #3d5467;
+            max-width: 700px;
+            border-left: 3px solid #a0b8cc;
+            padding-left: 1.2rem;
+            margin-top: 0.3rem;
+        }
+
+        /* 卡片网格 */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.8rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .info-card {
+            background: #ffffff;
+            border-radius: 24px;
+            border: 1px solid #e0e7ee;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+            padding: 1.8rem 1.8rem 2rem;
+            transition: transform 0.15s ease, box-shadow 0.2s;
+        }
+
+        .info-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(0, 20, 30, 0.06);
+        }
+
+        .card-icon {
+            font-size: 1.8rem;
+            display: inline-block;
+            margin-bottom: 0.5rem;
+            color: #3d6b8c;
+        }
+
+        .card-heading {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.6rem;
+            color: #102433;
+            letter-spacing: -0.01em;
+        }
+
+        .card-desc {
+            color: #2f4053;
+            font-size: 0.98rem;
+            margin-bottom: 0.7rem;
+        }
+
+        .card-meta {
+            color: #5f768b;
+            font-size: 0.9rem;
+            border-top: 1px dashed #dde3ea;
+            padding-top: 0.7rem;
+            margin-top: 0.5rem;
+        }
+
+        /* 段落承接区：自然链接 */
+        .link-section {
+            background: #ffffff;
+            border-radius: 24px;
+            border: 1px solid #e0e7ee;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+            padding: 2rem 2.2rem;
+            margin-bottom: 2.2rem;
+        }
+
+        .link-section p {
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            color: #203445;
+        }
+
+        .link-section p:last-child {
+            margin-bottom: 0;
+        }
+
+        .inline-link {
+            color: #1f5e8a;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid #b3c9de;
+            transition: border-color 0.15s, color 0.15s;
+        }
+
+        .inline-link:hover {
+            color: #0a3b5e;
+            border-bottom-color: #0a3b5e;
+        }
+
+        /* FAQ 摘要 (简洁) */
+        .faq-mini {
+            background: #ffffff;
+            border-radius: 24px;
+            border: 1px solid #e0e7ee;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+            padding: 1.6rem 2rem;
+            margin-bottom: 2.2rem;
+        }
+
+        .faq-item {
+            padding: 0.6rem 0;
+            border-bottom: 1px solid #edf2f7;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-q {
+            font-weight: 600;
+            color: #0b263b;
+            margin-bottom: 0.15rem;
+            font-size: 1.02rem;
+        }
+
+        .faq-a {
+            color: #3d5b70;
+            font-size: 0.95rem;
+            padding-left: 0.3rem;
+        }
+
+        .faq-a a {
+            color: #1f5e8a;
+            text-decoration: none;
+            border-bottom: 1px solid #c8d6e5;
+        }
+
+        .faq-a a:hover {
+            border-bottom-color: #1f5e8a;
+        }
+
+        /* 提示块  + 人群卡片 */
+        .tip-people {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.8rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .tip-block {
+            flex: 1 1 240px;
+            background: #f8faff;
+            border-radius: 20px;
+            border: 1px solid #dbdfe6;
+            padding: 1.4rem 1.6rem;
+        }
+
+        .tip-block .label {
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: #1e4d6b;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.25rem;
+        }
+
+        .tip-block p {
+            color: #2e495e;
+            font-size: 0.95rem;
+        }
+
+        /* 响应式 */
+        @media (max-width: 680px) {
+            body {
+                padding: 1.2rem 0.9rem;
+            }
+
+            .hero-card {
+                padding: 2rem 1.5rem;
+            }
+
+            .hero-title {
+                font-size: 1.8rem;
+            }
+
+            .hero-sub {
+                font-size: 1rem;
+                padding-left: 1rem;
+            }
+
+            .card-grid {
+                gap: 1.2rem;
+            }
+
+            .info-card {
+                padding: 1.5rem;
+            }
+
+            .link-section {
+                padding: 1.6rem 1.2rem;
+            }
+
+            .faq-mini {
+                padding: 1.2rem 1.2rem;
+            }
+
+            .tip-people {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 1.5rem;
+            }
+
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* 脚注 */
+        .foot-note {
+            text-align: center;
+            color: #6a7f92;
+            font-size: 0.85rem;
+            border-top: 1px solid #d6dee8;
+            padding-top: 1.8rem;
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="page-wrap">
+        <!-- 主视觉 / 资料台 -->
+        <div class="hero-card">
+            <span class="hero-label">⚡ 信息索引 · 知识卡片</span>
+            <h1 class="hero-title">雷火电竞 · 资料整理视角</h1>
+            <div class="hero-sub">
+                从用户需求、内容结构到使用场景，将平台信息归纳为可查阅的知识单元。
+            </div>
+        </div>
+
+        <!-- 用途卡片 · 特点 + 场景 + 人群 -->
+        <div class="card-grid">
+            <div class="info-card">
+                <div class="card-icon">📋</div>
+                <div class="card-heading">资料聚合用途</div>
+                <div class="card-desc">
+                    将赛事数据、历史记录与玩家攻略整合为结构化卡片，便于横向对比与深度浏览。
+                </div>
+                <div class="card-meta">覆盖多个品类 · 持续更新</div>
+            </div>
+            <div class="info-card">
+                <div class="card-icon">🔍</div>
+                <div class="card-heading">信息索引特性</div>
+                <div class="card-desc">
+                    通过分类标签与搜索入口，快速定位感兴趣的内容片段，降低信息噪声。
+                </div>
+                <div class="card-meta">标签分类 · 检索辅助</div>
+            </div>
+            <div class="info-card">
+                <div class="card-icon">🧑‍💻</div>
+                <div class="card-heading">适合这类人群</div>
+                <div class="card-desc">
+                    习惯先查阅资料再参与讨论的玩家、关注赛事数据与趋势的分析型用户。
+                </div>
+                <div class="card-meta">分析型 · 策略型 · 内容型</div>
+            </div>
+        </div>
+
+        <!-- 自然链接段落：从整理到使用 -->
+        <div class="link-section">
+            <p>
+                在信息查阅过程中，许多用户倾向于先建立对平台的整体认知，再逐步深入具体内容。
+                通过对 <a href="https://webs-leihuo.com" class="inline-link">雷火电竞</a> 相关资料的整理，可以发现其内容体系涵盖赛事日程、队伍档案与历史记录，适合作为知识索引的起点。
+            </p>
+            <p>
+                把零散信息转化为可检索的卡片结构，能够帮助研究者或爱好者更快地建立心理模型。
+                基于现有资料，可以将常见问题与使用场景归纳为以下摘要部分，方便对照。
+            </p>
+        </div>
+
+        <!-- FAQ 摘要 -->
+        <div class="faq-mini">
+            <div class="faq-item">
+                <div class="faq-q">❓ 哪些内容适合用卡片形式整理？</div>
+                <div class="faq-a">赛事基础数据、版本更新要点、以及社区常见讨论主题，均可提炼成独立索引单元。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">❓ 如何利用索引提高信息效率？</div>
+                <div class="faq-a">先明确自己关注的维度（如队伍、赛果或规则），再通过分类标签进行筛选。可参考 <a href="https://webs-leihuo.com">雷火电竞</a> 既有结构。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">❓ 资料索引适合哪些使用场景？</div>
+                <div class="faq-a">适合赛前预习、赛后复盘以及内容创作前的素材收集，本质上是一种轻量级知识管理。</div>
+            </div>
+        </div>
+
+        <!-- 提示 + 人群补充 -->
+        <div class="tip-people">
+            <div class="tip-block">
+                <div class="label">📌 提示</div>
+                <p>索引卡片无法替代实时动态，建议将资料查阅与官方信息结合使用，避免信息滞后。</p>
+            </div>
+            <div class="tip-block">
+                <div class="label">🎯 适合人群 (补充)</div>
+                <p>赛事编辑、攻略作者、数据爱好者以及希望快速熟悉平台框架的新用户。</p>
+            </div>
+        </div>
+
+        <div class="foot-note">
+            基于公开资料整理 · 信息卡片式索引
+        </div>
+    </div>
+</body>
+</html>
